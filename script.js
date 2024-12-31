@@ -4,9 +4,17 @@ const fireworksCanvas = document.getElementById('fireworksCanvas');
 const starsCtx = starsCanvas.getContext('2d');
 const fireworksCtx = fireworksCanvas.getContext('2d');
 
-// Set canvas dimensions
-starsCanvas.width = fireworksCanvas.width = window.innerWidth;
-starsCanvas.height = fireworksCanvas.height = window.innerHeight;
+// Resize canvas to fit window
+function resizeCanvas() {
+  starsCanvas.width = fireworksCanvas.width = window.innerWidth;
+  starsCanvas.height = fireworksCanvas.height = window.innerHeight;
+}
+
+// Initialize canvas size
+resizeCanvas();
+
+// Handle window resize
+window.addEventListener('resize', resizeCanvas);
 
 // Stars logic
 const stars = [];
@@ -22,7 +30,7 @@ for (let i = 0; i < 150; i++) {
 
 function drawStars() {
   starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
-  stars.forEach(star => {
+  stars.forEach((star) => {
     star.alpha += star.twinkleSpeed * (Math.random() > 0.5 ? 1 : -1);
     star.alpha = Math.min(Math.max(star.alpha, 0.2), 1);
     starsCtx.beginPath();
@@ -85,7 +93,7 @@ function animateFireworks() {
   requestAnimationFrame(animateFireworks);
 }
 
-// Countdown timer logic
+// Countdown logic
 const nextYear = new Date('January 1, 2026 00:00:00').getTime();
 function updateCountdown() {
   const now = new Date().getTime();
@@ -101,13 +109,6 @@ function updateCountdown() {
   document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
   document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
 }
-
-// Adjust canvas size on window resize
-window.addEventListener('resize', () => {
-  starsCanvas.width = fireworksCanvas.width = window.innerWidth;
-  starsCanvas.height = fireworksCanvas.height = window.innerHeight;
-  drawStars();
-});
 
 // Start animations
 setInterval(createFirework, 800);

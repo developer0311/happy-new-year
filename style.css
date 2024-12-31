@@ -1,84 +1,125 @@
-/* Global styles */
+/* Resetting margins and paddings */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
-    background: black;
-    color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #1e3c72,
+    #2a5298
+  ); /* Beautiful gradient background */
+  color: white;
+  overflow: hidden;
+}
+
+/* Centering the content */
+.content {
+    width: 100vw;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-  }
-  
-  /* Content styles */
-  .content {
-    position: relative;
-    z-index: 10;
     text-align: center;
-    color: white;
-    text-shadow: 0 0 10px #fff, 0 0 20px #ff004f;
+}
+
+/* Greeting Text */
+.greeting-container {
+  width: 90vw;
+  margin-bottom: 40px;
+}
+
+.greeting-text {
+  font-size: 3rem;
+  color: #ffcc00;
+  text-shadow: 0 0 20px #ff8c00, 0 0 40px #ff6347;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.subheading {
+  font-size: 1.5rem;
+  color: #ffd700;
+  margin-top: 10px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #ffa500, 0 0 20px #ff6347;
+}
+
+.wish-from {
+  font-size: 1.2rem;
+  color: #ff6347;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Countdown Section */
+.countdown-container {
+  margin-top: 40px;
+}
+
+.countdown-title {
+  font-size: 2.5rem;
+  color: #87cefa;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #1e90ff;
+  margin-bottom: 20px;
+}
+
+/* Countdown Timer Styles */
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.8rem;
+  color: #fffafa;
+  text-shadow: 0 0 10px #ffa07a;
+}
+
+.time-unit span {
+  font-size: 3rem;
+  color: #32cd32;
+  text-shadow: 0 0 20px #32cd32, 0 0 30px #3cb371;
+}
+
+.time-unit small {
+  font-size: 1rem;
+  color: #ffffff;
+  text-shadow: 0 0 5px #87ceeb;
+}
+
+/* Canvas (Fireworks & Stars) */
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* Responsive */
+  height: 100%; /* Responsive */
+  z-index: -1; /* Canvas stays behind the text */
+}
+
+/* Glow Effect Animation */
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ff8c00, 0 0 30px #ff6347, 0 0 50px #ff6347;
   }
-  
-  .content h1 {
-    font-size: 3rem;
-    color: #ffd700;
+  50% {
+    text-shadow: 0 0 20px #ff8c00, 0 0 40px #ff6347, 0 0 70px #ff4500;
   }
-  
-  .content p {
-    margin-top: 10px;
-    font-size: 1.2rem;
-    color: #fff;
+  100% {
+    text-shadow: 0 0 30px #ff8c00, 0 0 60px #ff6347, 0 0 100px #ff0000;
   }
-  
-  /* Countdown styles */
-  #countdown {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  #countdown h2 {
-    font-size: 2rem;
-    color: #ff004f;
-    text-shadow: 0 0 10px #ff004f, 0 0 20px #ff004f;
-  }
-  
-  .time {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-  }
-  
-  .time div {
-    text-align: center;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-  }
-  
-  .time span {
-    display: block;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #00ff00;
-  }
-  
-  .time p {
-    font-size: 1rem;
-    color: #fff;
-  }
-  
-  /* Canvas styles */
-  canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
+}
+
+
+@media only screen and (max-width: 400px) {
+    
+}
