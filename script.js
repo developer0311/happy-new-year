@@ -1,13 +1,11 @@
 // Get canvas elements
-const starsCanvas = document.getElementById('starsCanvas');
 const fireworksCanvas = document.getElementById('fireworksCanvas');
-const starsCtx = starsCanvas.getContext('2d');
 const fireworksCtx = fireworksCanvas.getContext('2d');
 
 // Resize canvas to fit window
 function resizeCanvas() {
-  starsCanvas.width = fireworksCanvas.width = window.innerWidth;
-  starsCanvas.height = fireworksCanvas.height = window.innerHeight;
+  fireworksCanvas.width = window.innerWidth;
+  fireworksCanvas.height = window.innerHeight;
 }
 
 // Initialize canvas size
@@ -15,31 +13,6 @@ resizeCanvas();
 
 // Handle window resize
 window.addEventListener('resize', resizeCanvas);
-
-// Stars logic
-const stars = [];
-for (let i = 0; i < 150; i++) {
-  stars.push({
-    x: Math.random() * starsCanvas.width,
-    y: Math.random() * starsCanvas.height,
-    radius: Math.random() * 1.5 + 0.5,
-    alpha: Math.random(),
-    twinkleSpeed: Math.random() * 0.02 + 0.01,
-  });
-}
-
-function drawStars() {
-  starsCtx.clearRect(0, 0, starsCanvas.width, starsCanvas.height);
-  stars.forEach((star) => {
-    star.alpha += star.twinkleSpeed * (Math.random() > 0.5 ? 1 : -1);
-    star.alpha = Math.min(Math.max(star.alpha, 0.2), 1);
-    starsCtx.beginPath();
-    starsCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-    starsCtx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-    starsCtx.fill();
-  });
-  requestAnimationFrame(drawStars);
-}
 
 // Fireworks logic
 const fireworks = [];
@@ -111,7 +84,6 @@ function updateCountdown() {
 }
 
 // Start animations
-setInterval(createFirework, 800);
-animateFireworks();
-drawStars();
-setInterval(updateCountdown, 1000);
+setInterval(createFirework, 800);  // Create a firework every 800ms
+animateFireworks();               // Start animating fireworks
+setInterval(updateCountdown, 1000); // Update countdown every second
