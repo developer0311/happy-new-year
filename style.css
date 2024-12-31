@@ -1,0 +1,84 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Content styles */
+  .content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff004f;
+  }
+  
+  .content h1 {
+    font-size: 3rem;
+    color: #ffd700;
+  }
+  
+  .content p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  /* Countdown styles */
+  #countdown {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  #countdown h2 {
+    font-size: 2rem;
+    color: #ff004f;
+    text-shadow: 0 0 10px #ff004f, 0 0 20px #ff004f;
+  }
+  
+  .time {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .time div {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  .time span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ff00;
+  }
+  
+  .time p {
+    font-size: 1rem;
+    color: #fff;
+  }
+  
+  /* Canvas styles */
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
